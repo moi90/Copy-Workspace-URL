@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { createWorkspaceUrl, selectWorkspaceUri } from '../workspaceUrl';
+import { createWorkspaceUrl, formatWorkspaceUrl, selectWorkspaceUri } from '../workspaceUrl';
 
 describe('Workspace URL generation', () => {
   it('Remote SSH URI converts correctly', () => {
@@ -95,5 +95,25 @@ describe('Workspace URL generation', () => {
       ok: false,
       message: 'The current workspace does not have a persistent workspace file.'
     });
+  });
+
+  it('formats plain clipboard output', () => {
+    const result = formatWorkspaceUrl('vscode://vscode-remote/ssh-remote+host/path', 'plain', 'sample');
+    assert.strictEqual(result, 'vscode://vscode-remote/ssh-remote+host/path');
+  });
+
+  it('formats markdown clipboard output', () => {
+    const result = formatWorkspaceUrl('vscode://vscode-remote/ssh-remote+host/path', 'markdown', 'sample');
+    assert.strictEqual(result, '[sample](vscode://vscode-remote/ssh-remote+host/path)');
+  });
+
+  it('formats html clipboard output with escaping', () => {
+    const result = formatWorkspaceUrl('vscode://vscode-remote/ssh-remote+host/path?a=1&b=2', 'html', 'sample & more');
+    assert.strictEqual(result, '<a href="vscode://vscode-remote/ssh-remote+host/path?a=1&amp;b=2">sample &amp; more</a>');
+  });
+
+  it('falls back to default name when none is provided', () => {
+    const result = formatWorkspaceUrl('vscode://vscode-remote/ssh-remote+host/path', 'markdown');
+    assert.strictEqual(result, '[Workspace](vscode://vscode-remote/ssh-remote+host/path)');
   });
 });

@@ -13,10 +13,34 @@
     "vscode": "^1.89.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:copyWorkspaceUrl.copy"],
+  "activationEvents": [
+    "onCommand:copyWorkspaceUrl.copy",
+    "onCommand:copyWorkspaceUrl.copyMarkdown",
+    "onCommand:copyWorkspaceUrl.copyHtml",
+    "onCommand:copyWorkspaceUrl.copyChooseFormat"
+  ],
   "main": "./out/extension.js",
   "extensionKind": ["ui"],
-  "contributes": {"commands": [{"command": "copyWorkspaceUrl.copy","title": "Copy Workspace URL"}]},
+  "contributes": {
+    "commands": [
+      {
+        "command": "copyWorkspaceUrl.copy",
+        "title": "Copy Workspace URL"
+      },
+      {
+        "command": "copyWorkspaceUrl.copyChooseFormat",
+        "title": "Copy Workspace URL (Choose Format)"
+      },
+      {
+        "command": "copyWorkspaceUrl.copyMarkdown",
+        "title": "Copy Workspace URL as Markdown Link"
+      },
+      {
+        "command": "copyWorkspaceUrl.copyHtml",
+        "title": "Copy Workspace URL as HTML Link"
+      }
+    ]
+  },
   "scripts": {"vscode:prepublish": "npm run compile","compile": "tsc -p .","watch": "tsc -watch -p .","test": "mocha ./out/test/**/*.js"},
   "devDependencies": {"@types/node": "^20","@types/vscode": "^1.89.0","@types/mocha": "^10.0.7","typescript": "^5.3.3","mocha": "^10.2.0","chai": "^4.3.10"}
 }
