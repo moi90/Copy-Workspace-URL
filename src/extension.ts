@@ -9,6 +9,13 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
+    if (vscode.env.remoteName && selection.uri.scheme === 'file') {
+      vscode.window.showErrorMessage(
+        'Remote session detected but workspace URI is local file:. Install/run this extension on the UI host and try again.'
+      );
+      return;
+    }
+
     const url = createWorkspaceUrl(selection.uri);
 
     if (!url) {

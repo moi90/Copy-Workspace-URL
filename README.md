@@ -18,6 +18,12 @@ This Visual Studio Code extension provides a single command **Copy Workspace URL
 3. Run **Copy Workspace URL**.
 4. Paste the clipboard contents anywhere – the URL can be opened to reconnect to the same workspace.
 
+### Remote SSH Note
+
+For Remote SSH usage, this extension is intended to run on the UI (local) extension host so VS Code provides `vscode-remote` workspace URIs.
+
+If you see an error saying a remote session was detected but the workspace URI is `file:`, reinstall the extension for the local/UI side and reload the window.
+
 ## Development
 
 ### Prerequisites

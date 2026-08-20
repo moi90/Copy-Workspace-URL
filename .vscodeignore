@@ -1,0 +1,13 @@
+# Source and tests are not needed at runtime
+src/**
+out/test/**
+
+# Development and workspace-only files
+.vscode/**
+design/**
+0001-initial-version.md
+tsconfig.json
+
+# Local/dependency artifacts
+node_modules/**
+package-lock.json
