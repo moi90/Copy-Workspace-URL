@@ -1,0 +1,17 @@
+{
+  "name": "copy-workspace-url",
+  "displayName": "Copy Workspace URL",
+  "description": "Copies a reopenable VS Code URL for the current workspace to the clipboard.",
+  "version": "0.0.1",
+  "publisher": "your-publisher",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:copyWorkspaceUrl.copy"],
+  "main": "./out/extension.js",
+  "extensionKind": ["workspace"],
+  "contributes": {"commands": [{"command": "copyWorkspaceUrl.copy","title": "Copy Workspace URL"}]},
+  "scripts": {"vscode:prepublish": "npm run compile","compile": "tsc -p .","watch": "tsc -watch -p .","test": "mocha ./out/test/**/*.js"},
+  "devDependencies": {"@types/node": "^20","@types/vscode": "^1.89.0","@types/mocha": "^10.0.7","typescript": "^5.3.3","mocha": "^10.2.0","chai": "^4.3.10"}
+}
