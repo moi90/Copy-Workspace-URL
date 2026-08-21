@@ -33,9 +33,11 @@ If you see an error saying a remote session was detected but the workspace URI i
 
 ## Clipboard Format Note
 
-The VS Code extension API currently exposes text clipboard writes. This extension therefore offers explicit format commands (plain/Markdown/HTML) rather than writing multiple MIME variants in one clipboard operation.
+The VS Code extension API currently only exposes text clipboard writes. This extension therefore offers explicit format commands (plain/Markdown/HTML) rather than writing multiple MIME variants in one clipboard operation.
 
 ## Development
+
+Contributions and bug reports are welcome.
 
 ### Prerequisites
 
@@ -68,6 +70,10 @@ To create a `.vsix` package for distribution:
 ```bash
 npx @vscode/vsce package
 ```
+
+### AI-assisted development
+
+This project was developed primarily with the assistance of AI coding tools. The maintainer has reviewed and tested the resulting code.
 
 ## License
 
